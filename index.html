@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Jornada Fitness 💪</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cabeçalho com título inspirador -->
+        <header class="header">
+            <div class="theme-toggle-container">
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="toggle-icon" id="toggleIcon">🌞</span>
+                    <span class="toggle-text" id="toggleText">Modo Claro</span>
+                </button>
+            </div>
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <span class="badge-icon">👑</span>
+                    <span class="badge-text">O Mais Forte</span>
+                </div>
+                <h1 class="title">
+                    <span class="title-greeting">Saulo,</span>
+                    <span class="title-name">O Mais Forte</span>
+                    <span class="title-emoji">💪</span>
+                </h1>
+                <p class="subtitle-main">Dominando cada dia rumo à supremacia física</p>
+                <p class="subtitle" id="motivationalQuote">Cada dia é uma vitória conquistada!</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-value" id="heroLevel">Força 1</span>
+                        <span class="stat-label">Nível de Poder</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value" id="heroStreak">0</span>
+                        <span class="stat-label">Dias Domínio</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value" id="heroXP">0 PF</span>
+                        <span class="stat-label">Pontos Força</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Seção do contador de dias -->
+        <section class="counter-section">
+            <div class="counter-card anime-card">
+                <div class="card-header">
+                    <h2>👑 Supremacia de Saulo</h2>
+                    <div class="power-level">
+                        <span class="power-text">Força</span>
+                        <span class="power-number" id="powerLevel">1</span>
+                    </div>
+                </div>
+                
+                <div class="energy-system">
+                    <div class="energy-bar-container">
+                        <div class="energy-label">Poder Supremo</div>
+                        <div class="energy-bar">
+                            <div class="energy-fill" id="energyFill"></div>
+                            <div class="energy-spark"></div>
+                        </div>
+                        <div class="energy-text"><span id="energyPercent">0</span>%</div>
+                    </div>
+                </div>
+
+                <div class="counter-display anime-counter">
+                    <div class="counter-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                        <div class="supreme-aura"></div>
+                    </div>
+                    <div class="counter-content">
+                        <span class="counter-number" id="dayCounter">0</span>
+                        <span class="counter-label">dias de supremacia</span>
+                        <div class="power-aura"></div>
+                    </div>
+                </div>
+
+                <button class="workout-btn anime-btn" id="workoutBtn">
+                    <div class="btn-bg-effect"></div>
+                    <span class="btn-icon">👑</span>
+                    <span class="btn-text">Dominar Hoje!</span>
+                    <div class="btn-particles"></div>
+                </button>
+
+                <div class="supreme-stats">
+                    <div class="supreme-stat">
+                        <span class="stat-icon">📈</span>
+                        <div class="stat-info">
+                            <p class="last-workout" id="lastWorkout">Última dominação: Nunca</p>
+                            <span class="stat-subtitle">Histórico de conquistas</span>
+                        </div>
+                    </div>
+                    <div class="supreme-stat">
+                        <span class="stat-icon">�</span>
+                        <div class="stat-info">
+                            <p class="next-goal">Próximo título: 7 dias</p>
+                            <span class="stat-subtitle">Meta suprema</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção do gráfico semanal -->
+        <section class="chart-section">
+            <div class="chart-card">
+                <h3>📊 Treinos da Semana</h3>
+                <div class="chart-header">
+                    <div class="progress-ring">
+                        <svg class="progress-svg" width="60" height="60">
+                            <circle class="progress-circle-bg" cx="30" cy="30" r="25"></circle>
+                            <circle class="progress-circle" cx="30" cy="30" r="25" id="weekProgress"></circle>
+                        </svg>
+                        <span class="progress-text" id="weekPercentage">0%</span>
+                    </div>
+                    <div class="chart-stats">
+                        <span class="stat-label">Meta Semanal</span>
+                        <span class="stat-value" id="weekGoal">0/7</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-bar" data-day="Dom">
+                        <div class="bar" id="bar-0"></div>
+                        <span class="day-label">Dom</span>
+                        <div class="bar-tooltip">Domingo</div>
+                    </div>
+                    <div class="chart-bar" data-day="Seg">
+                        <div class="bar" id="bar-1"></div>
+                        <span class="day-label">Seg</span>
+                        <div class="bar-tooltip">Segunda</div>
+                    </div>
+                    <div class="chart-bar" data-day="Ter">
+                        <div class="bar" id="bar-2"></div>
+                        <span class="day-label">Ter</span>
+                        <div class="bar-tooltip">Terça</div>
+                    </div>
+                    <div class="chart-bar" data-day="Qua">
+                        <div class="bar" id="bar-3"></div>
+                        <span class="day-label">Qua</span>
+                        <div class="bar-tooltip">Quarta</div>
+                    </div>
+                    <div class="chart-bar" data-day="Qui">
+                        <div class="bar" id="bar-4"></div>
+                        <span class="day-label">Qui</span>
+                        <div class="bar-tooltip">Quinta</div>
+                    </div>
+                    <div class="chart-bar" data-day="Sex">
+                        <div class="bar" id="bar-5"></div>
+                        <span class="day-label">Sex</span>
+                        <div class="bar-tooltip">Sexta</div>
+                    </div>
+                    <div class="chart-bar" data-day="Sáb">
+                        <div class="bar" id="bar-6"></div>
+                        <span class="day-label">Sáb</span>
+                        <div class="bar-tooltip">Sábado</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegação por abas -->
+        <section class="tabs-section">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="nutrition">🍽️ Alimentação</button>
+                <button class="tab-btn" data-tab="shopping">🛒 Lista de Compras</button>
+                <button class="tab-btn" data-tab="meal-plan">📅 Planejamento Semanal</button>
+            </div>
+        </section>
+
+        <!-- Seção de alimentação -->
+        <section class="nutrition-section tab-content active" id="nutrition-tab">
+            <div class="nutrition-card">
+                <h3>🍽️ Alimentação de Hoje</h3>
+                
+                <div class="nutrition-header">
+                    <div class="calories-display">
+                        <div class="calories-circle">
+                            <span class="calories-number" id="caloriesCount">0</span>
+                            <span class="calories-label">kcal</span>
+                        </div>
+                    </div>
+                    <div class="nutrition-stats">
+                        <div class="nutrition-stat">
+                            <span class="stat-icon">🥗</span>
+                            <span class="stat-text">Refeições</span>
+                            <span class="stat-number" id="mealsCount">0/4</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Café da manhã -->
+                <div class="meal-group">
+                    <label for="breakfast">
+                        <span class="meal-icon">☀️</span>
+                        <span class="meal-name">Café da Manhã</span>
+                        <span class="meal-time">06:00 - 10:00</span>
+                    </label>
+                    <div class="textarea-container">
+                        <textarea id="breakfast" placeholder="Ex: Aveia com frutas, café preto, ovos mexidos..."></textarea>
+                        <div class="char-count" id="breakfast-count">0/200</div>
+                    </div>
+                </div>
+
+                <!-- Almoço -->
+                <div class="meal-group">
+                    <label for="lunch">
+                        <span class="meal-icon">🍽️</span>
+                        <span class="meal-name">Almoço</span>
+                        <span class="meal-time">12:00 - 15:00</span>
+                    </label>
+                    <div class="textarea-container">
+                        <textarea id="lunch" placeholder="Ex: Arroz integral, frango grelhado, salada verde..."></textarea>
+                        <div class="char-count" id="lunch-count">0/200</div>
+                    </div>
+                </div>
+
+                <!-- Jantar -->
+                <div class="meal-group">
+                    <label for="dinner">
+                        <span class="meal-icon">🌙</span>
+                        <span class="meal-name">Jantar</span>
+                        <span class="meal-time">18:00 - 21:00</span>
+                    </label>
+                    <div class="textarea-container">
+                        <textarea id="dinner" placeholder="Ex: Sopa de legumes, pão integral, chá..."></textarea>
+                        <div class="char-count" id="dinner-count">0/200</div>
+                    </div>
+                </div>
+
+                <!-- Lanches -->
+                <div class="meal-group">
+                    <label for="snacks">
+                        <span class="meal-icon">🥜</span>
+                        <span class="meal-name">Lanches</span>
+                        <span class="meal-time">Qualquer hora</span>
+                    </label>
+                    <div class="textarea-container">
+                        <textarea id="snacks" placeholder="Ex: Frutas, castanhas, iogurte, smoothie..."></textarea>
+                        <div class="char-count" id="snacks-count">0/200</div>
+                    </div>
+                </div>
+
+                <button class="save-btn" id="saveNutrition">
+                    <span class="btn-icon">💾</span>
+                    <span class="btn-text">Salvar Alimentação</span>
+                    <div class="btn-ripple"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Seção de Lista de Compras -->
+        <section class="shopping-section tab-content" id="shopping-tab">
+            <div class="shopping-card">
+                <h3>🛒 Lista de Compras Saudáveis</h3>
+                
+                <div class="shopping-header">
+                    <div class="shopping-stats">
+                        <div class="stat-box">
+                            <span class="stat-number" id="totalItems">0</span>
+                            <span class="stat-label">Itens</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="completedItems">0</span>
+                            <span class="stat-label">Comprados</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="estimatedCost">R$ 0</span>
+                            <span class="stat-label">Estimado</span>
+                        </div>
+                    </div>
+                    <button class="clear-btn" id="clearCompleted">🗑️ Limpar Comprados</button>
+                </div>
+
+                <!-- Categorias de Compras -->
+                <div class="shopping-categories">
+                    
+                    <!-- Proteínas -->
+                    <div class="category-group">
+                        <h4 class="category-title">
+                            <span class="category-icon">🥩</span>
+                            Proteínas
+                            <span class="category-count" id="proteins-count">0</span>
+                        </h4>
+                        <div class="category-content">
+                            <div class="add-item-form">
+                                <input type="text" id="protein-input" placeholder="Ex: Frango, Ovos, Peixe..." maxlength="50">
+                                <input type="number" id="protein-price" placeholder="R$ 0,00" step="0.01" min="0">
+                                <button class="add-btn" data-category="proteins">➕</button>
+                            </div>
+                            <div class="items-list" id="proteins-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Carboidratos -->
+                    <div class="category-group">
+                        <h4 class="category-title">
+                            <span class="category-icon">🍞</span>
+                            Carboidratos
+                            <span class="category-count" id="carbs-count">0</span>
+                        </h4>
+                        <div class="category-content">
+                            <div class="add-item-form">
+                                <input type="text" id="carbs-input" placeholder="Ex: Arroz, Aveia, Batata..." maxlength="50">
+                                <input type="number" id="carbs-price" placeholder="R$ 0,00" step="0.01" min="0">
+                                <button class="add-btn" data-category="carbs">➕</button>
+                            </div>
+                            <div class="items-list" id="carbs-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Vegetais e Frutas -->
+                    <div class="category-group">
+                        <h4 class="category-title">
+                            <span class="category-icon">🥬</span>
+                            Vegetais & Frutas
+                            <span class="category-count" id="vegetables-count">0</span>
+                        </h4>
+                        <div class="category-content">
+                            <div class="add-item-form">
+                                <input type="text" id="vegetables-input" placeholder="Ex: Brócolis, Maçã, Banana..." maxlength="50">
+                                <input type="number" id="vegetables-price" placeholder="R$ 0,00" step="0.01" min="0">
+                                <button class="add-btn" data-category="vegetables">➕</button>
+                            </div>
+                            <div class="items-list" id="vegetables-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Gorduras Saudáveis -->
+                    <div class="category-group">
+                        <h4 class="category-title">
+                            <span class="category-icon">🥑</span>
+                            Gorduras Saudáveis
+                            <span class="category-count" id="fats-count">0</span>
+                        </h4>
+                        <div class="category-content">
+                            <div class="add-item-form">
+                                <input type="text" id="fats-input" placeholder="Ex: Abacate, Castanhas, Azeite..." maxlength="50">
+                                <input type="number" id="fats-price" placeholder="R$ 0,00" step="0.01" min="0">
+                                <button class="add-btn" data-category="fats">➕</button>
+                            </div>
+                            <div class="items-list" id="fats-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Laticínios -->
+                    <div class="category-group">
+                        <h4 class="category-title">
+                            <span class="category-icon">🥛</span>
+                            Laticínios
+                            <span class="category-count" id="dairy-count">0</span>
+                        </h4>
+                        <div class="category-content">
+                            <div class="add-item-form">
+                                <input type="text" id="dairy-input" placeholder="Ex: Leite, Iogurte, Queijo..." maxlength="50">
+                                <input type="number" id="dairy-price" placeholder="R$ 0,00" step="0.01" min="0">
+                                <button class="add-btn" data-category="dairy">➕</button>
+                            </div>
+                            <div class="items-list" id="dairy-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Outros -->
+                    <div class="category-group">
+                        <h4 class="category-title">
+                            <span class="category-icon">🏪</span>
+                            Outros
+                            <span class="category-count" id="others-count">0</span>
+                        </h4>
+                        <div class="category-content">
+                            <div class="add-item-form">
+                                <input type="text" id="others-input" placeholder="Ex: Temperos, Chás, Suplementos..." maxlength="50">
+                                <input type="number" id="others-price" placeholder="R$ 0,00" step="0.01" min="0">
+                                <button class="add-btn" data-category="others">➕</button>
+                            </div>
+                            <div class="items-list" id="others-list"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shopping-actions">
+                    <button class="save-btn" id="saveShoppingList">
+                        <span class="btn-icon">💾</span>
+                        <span class="btn-text">Salvar Lista</span>
+                    </button>
+                    <button class="export-btn" id="exportList">
+                        <span class="btn-icon">📄</span>
+                        <span class="btn-text">Exportar Lista</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Planejamento Semanal -->
+        <section class="meal-plan-section tab-content" id="meal-plan-tab">
+            <div class="meal-plan-card">
+                <h3>📅 Planejamento Semanal de Refeições</h3>
+                
+                <div class="plan-header">
+                    <div class="week-navigation">
+                        <button class="week-btn" id="prevWeek">⬅️ Semana Anterior</button>
+                        <span class="current-week" id="currentWeek">Semana Atual</span>
+                        <button class="week-btn" id="nextWeek">Próxima Semana ➡️</button>
+                    </div>
+                </div>
+
+                <div class="meal-plan-grid">
+                    <div class="day-column">
+                        <h4 class="day-header">🌅 Domingo</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="sun-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="sun-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="sun-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-column">
+                        <h4 class="day-header">📅 Segunda</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="mon-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="mon-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="mon-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-column">
+                        <h4 class="day-header">📅 Terça</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="tue-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="tue-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="tue-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-column">
+                        <h4 class="day-header">📅 Quarta</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="wed-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="wed-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="wed-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-column">
+                        <h4 class="day-header">📅 Quinta</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="thu-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="thu-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="thu-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-column">
+                        <h4 class="day-header">📅 Sexta</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="fri-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="fri-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="fri-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-column">
+                        <h4 class="day-header">📅 Sábado</h4>
+                        <div class="meal-slots">
+                            <div class="meal-slot">
+                                <label>☀️ Café</label>
+                                <textarea placeholder="Planejar café da manhã..." id="sat-breakfast"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🍽️ Almoço</label>
+                                <textarea placeholder="Planejar almoço..." id="sat-lunch"></textarea>
+                            </div>
+                            <div class="meal-slot">
+                                <label>🌙 Jantar</label>
+                                <textarea placeholder="Planejar jantar..." id="sat-dinner"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-actions">
+                    <button class="save-btn" id="saveMealPlan">
+                        <span class="btn-icon">💾</span>
+                        <span class="btn-text">Salvar Planejamento</span>
+                    </button>
+                    <button class="generate-btn" id="generateShoppingFromPlan">
+                        <span class="btn-icon">🛒</span>
+                        <span class="btn-text">Gerar Lista de Compras</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé com motivação ninja -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-quote">
+                    <p>🥷 O ninja Saulo jamais desiste de seus objetivos! ⚡</p>
+                </div>
+                <div class="footer-stats">
+                    <div class="footer-stat">
+                        <span class="stat-icon">�</span>
+                        <span>A jornada ninja começou</span>
+                    </div>
+                    <div class="footer-stat">
+                        <span class="stat-icon">⚔️</span>
+                        <span>Discipline is your weapon</span>
+                    </div>
+                    <div class="footer-stat">
+                        <span class="stat-icon">🌟</span>
+                        <span>Consistency makes legends</span>
+                    </div>
+                </div>
+                <div class="footer-signature">
+                    <p>🎯 Crafted with anime spirit for the ultimate fitness ninja 🥷</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
