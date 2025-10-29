@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Treinos 📅</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calendario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="theme-toggle-container">
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="toggle-icon" id="toggleIcon">🌞</span>
+                    <span class="toggle-text" id="toggleText">Modo Claro</span>
+                </button>
+            </div>
+            <div class="hero-container">
+                <h1 class="title">
+                    <span class="title-greeting">📅 Calendário</span>
+                    <span class="title-name">de Treinos</span>
+                </h1>
+                <p class="subtitle-main">Planeje sua semana de dominação</p>
+                <button class="back-btn" onclick="window.location.href='index.html'">
+                    ← Voltar ao Início
+                </button>
+            </div>
+        </header>
+
+        <!-- Calendário Semanal -->
+        <section class="calendar-section">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <button class="nav-btn" id="prevWeek">←</button>
+                    <h2 id="weekTitle">Semana Atual</h2>
+                    <button class="nav-btn" id="nextWeek">→</button>
+                </div>
+
+                <div class="week-grid" id="weekGrid">
+                    <!-- Dias da semana serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Detalhes do Treino Selecionado -->
+            <div class="workout-details" id="workoutDetails">
+                <h3>Detalhes do Treino</h3>
+                <p class="select-day-msg">Selecione um dia para ver os detalhes do treino</p>
+            </div>
+        </section>
+
+        <!-- Modal para adicionar/editar treino -->
+        <div class="modal" id="workoutModal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <h2>Adicionar Treino</h2>
+                <form id="workoutForm">
+                    <div class="form-group">
+                        <label for="workoutType">Tipo de Treino:</label>
+                        <select id="workoutType" required>
+                            <option value="">Selecione...</option>
+                            <option value="peito">💪 Peito</option>
+                            <option value="costas">🦾 Costas</option>
+                            <option value="pernas">🦵 Pernas</option>
+                            <option value="ombros">🏋️ Ombros</option>
+                            <option value="bracos">💪 Braços</option>
+                            <option value="cardio">🏃 Cardio</option>
+                            <option value="fullbody">🔥 Full Body</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="workoutExercises">Exercícios:</label>
+                        <textarea id="workoutExercises" rows="5" placeholder="Ex: Supino 3x12, Crucifixo 3x12..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="workoutDuration">⏱️ Duração (min):</label>
+                            <input type="number" id="workoutDuration" min="1" placeholder="60">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutIntensity">🔥 Intensidade:</label>
+                            <select id="workoutIntensity">
+                                <option value="">Selecione...</option>
+                                <option value="low">🟢 Leve</option>
+                                <option value="medium">🟡 Moderado</option>
+                                <option value="high">🔴 Intenso</option>
+                                <option value="extreme">🔥 Extremo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="workoutNotes">Observações:</label>
+                        <textarea id="workoutNotes" rows="3" placeholder="Notas adicionais..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Salvar Treino</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="calendario.js"></script>
+</body>
+</html>
